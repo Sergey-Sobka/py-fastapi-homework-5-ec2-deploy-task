@@ -2,7 +2,7 @@
 
 # Running Gunicorn with Uvicorn workers
 gunicorn main:app \
-    --workers 10 \
+    --workers "${WEB_CONCURRENCY:-2}" \
     --worker-class uvicorn.workers.UvicornWorker \
     --bind 0.0.0.0:8000 \
     --log-level info \
